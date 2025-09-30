@@ -41,12 +41,14 @@ $routes->get('eliminar_funciones', 'FuncionesController::eliminarFunciones');
 $routes->post('modificar_funciones', 'FuncionesController::modificarFunciones');
 $routes->get('buscar_funciones', 'FuncionesController::buscarFunciones');
 
-/**genero */
-$routes->get('generos', 'GenerosController::index');
-$routes->post('agregar_generos', 'GenerosController::agregarGeneros');
-$routes->get('eliminar_generos', 'GenerosController::eliminarGeneros');
-$routes->post('modificar_generos', 'GenerosController::modificarGeneros');
-$routes->get('buscar_generos', 'GenerosController::buscarGeneros');
+/**genero editado por abe*/
+
+$routes->get('generos/listar', 'GenerosController::listar');
+$routes->get('generos/crear', 'GenerosController::crear');
+$routes->post('generos/guardar', 'GenerosController::guardar');
+$routes->get('generos/editar/(:num)', 'GenerosController::editar/$1');
+$routes->post('generos/actualizar/(:num)', 'GenerosController::actualizar/$1');
+$routes->get('generos/eliminar/(:num)', 'GenerosController::eliminar/$1');
 
 /**pagos */
 $routes->get('pagos', 'PagosController::index');
