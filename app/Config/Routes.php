@@ -65,22 +65,25 @@ $routes->post('modificar_peliculas', 'PeliculasController::modificarPeliculas');
 $routes->get('buscar_peliculas', 'PeliculasController::buscarPeliculas');
 
 /**reservas */
-$routes->get('reservas', 'ReservasController::index');
-$routes->post('agregar_reservas', 'ReservasController::agregarReservas');
-$routes->get('eliminar_reservas', 'ReservasController::eliminarReservas');
-$routes->post('modificar_reservas', 'ReservasController::modificarReservas');
-$routes->get('buscar_reservas', 'ReservasController::buscarReservas');
+$routes->get('reservas/listar', 'ReservasController::listar');
+$routes->get('reservas/crear', 'ReservasController::crear');
+$routes->post('reservas/guardar', 'ReservasController::guardar');
+$routes->get('reservas/editar/(:num)', 'ReservasController::editar/$1');
+$routes->post('reservas/actualizar/(:num)', 'ReservasController::actualizar/$1');
+$routes->get('reservas/eliminar/(:num)', 'ReservasController::eliminar/$1');
 
 /**salas */
-$routes->get('salas', 'SalasController::index');
-$routes->post('agregar_salas', 'SalasController::agregarSalas');
-$routes->get('eliminar_salas', 'SalasController::eliminarSalas');
-$routes->post('modificar_salas', 'SalasController::modificarSalas');
-$routes->get('buscar_salas', 'SalasController::buscarSalas');
+// editato por abe
+$routes->get('salas/listar', 'SalasController::listar');
+$routes->get('salas/crear', 'SalasController::crear');
+$routes->post('salas/guardar', 'SalasController::guardar');
+$routes->get('salas/editar/(:num)', 'SalasController::editar/$1');
+$routes->post('salas/actualizar/(:num)', 'SalasController::actualizar/$1');
+$routes->get('salas/eliminar/(:num)', 'SalasController::eliminar/$1');
 
 /**usuarios */
 $routes->get('usuarios', 'UsuariosController::index');
-$routes->post('agregar_usuarios', 'UsuariosController::agregarUsuarios');
-$routes->get('eliminar_usuarios', 'UsuariosController::eliminarUsuarios');
+$routes->post('agregar_usuarios', 'UusuariosConroller::agregarUsuarios');
+$routes->get('eliminar:usuarios', 'UsuariosController::eliminarUsuarios');
 $routes->post('modificar_usuarios', 'UsuariosController::modificarUsuarios');
-$routes->get('buscar_usuarios', 'UsuariosController::buscarUsuarios');
+$routes->get('buscar_usuario', 'UsuariosController::buscarUsuarios');
