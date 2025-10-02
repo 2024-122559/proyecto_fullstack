@@ -10,7 +10,7 @@
 
 <body class="container py-4">
 
-    <h2 class="mb-4">Agregar Editorial</h2>
+    <h2 class="mb-4">Agregar Sala</h2>
 
     <form method="post" action="<?= base_url('salas/guardar'); ?>" class="card p-4 shadow">
         <div class="mb-3">
