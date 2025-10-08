@@ -6,6 +6,17 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+
+/*agregado por abe*/
+$routes->get('cine', 'CineController::index');
+
+
+$routes->get('iniciar_sesion', 'LoginController::index');
+$routes->post('login/login', 'LoginController::login');
+$routes->get('logout', 'LoginController::logout');
+$routes->get('movies', 'MoviesController::index');
+
+
 /** asientos */
 $routes->get('asientos', 'AsientosControlller::index');
 $routes->post('agregar_asientos', 'AsientosController::agregarAsientos');

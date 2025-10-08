@@ -14,7 +14,8 @@
 
     <form method="post" action="<?= base_url('salas/guardar'); ?>" class="card p-4 shadow">
         <div class="mb-3">
-            <label class="form-label">Nombre</label>
+            <label clas
+            s="form-label">Nombre</label>
             <input type="text" name="nombre" class="form-control" required>
         </div>
         <div class="mb-3">

@@ -32,7 +32,7 @@
 
     Swal.fire({
         icon: 'success',
-        title: '¡Operación exitosa!',
+        title: 'Si funcio',
         text: textin,
         timer: 2500,
         showConfirmButton: false
