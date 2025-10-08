@@ -9,11 +9,13 @@ $routes->get('/', 'Home::index');
 
 /*agregado por abe*/
 $routes->get('cine', 'CineController::index');
+$routes->get('reservar/(:num)', 'ReservarController::index/$1');
+$routes->get('reservas/listar', 'ReservasController::listar');
 
 
 $routes->get('iniciar_sesion', 'LoginController::index');
-$routes->post('login/login', 'LoginController::login');
-$routes->get('logout', 'LoginController::logout');
+$routes->post('login', 'LoginController::login');
+
 $routes->get('movies', 'MoviesController::index');
 
 

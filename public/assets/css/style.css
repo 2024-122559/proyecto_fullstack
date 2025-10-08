@@ -78,7 +78,6 @@ body {
   }
 }
 
-/* Additional twinkling stars with different animation timing */
 .stars::after {
   content: "";
   position: absolute;
@@ -139,7 +138,6 @@ body {
     url("https://db.onlinewebfonts.com/t/6a1289b5e1a8464089f3464f379fbd00.svg#Neonrec")format("svg");
 }
 
-/* El fondo ahora solo se aplica al contenedor */
 .cine-container {
   max-width: 800px;
   margin: 0px auto;
@@ -153,7 +151,7 @@ body {
   
 }
 
-/* NAVBAR con imagen */
+/* NAVBAR  */
 .navbar-custom {
   background: url('https://i.ibb.co/211Hjf4p/nav.png') no-repeat center center;
   background-size: cover;
@@ -178,7 +176,7 @@ a {
   justify-content: center;
 }
 
-/* Título centrado */
+
 .cine-container h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -212,22 +210,10 @@ a {
   margin-top: 20px;
   align-items: center;
 
-    /* ✨ animación cada 4s */
-  animation: tadaRepeat 4s infinite;
+ 
 }
 
-/* 👇 esta animación llama al efecto "tada" de animate.css */
-@keyframes tadaRepeat {
-  0% {
-    animation-timing-function: ease;
-  }
-  5% {
-    animation-name: tada;
-  }
-  100% {
-    animation-name: none;
-  }
-}
+
 
 .vineta > span {
   font-family: "Asiana", sans-serif;
@@ -256,7 +242,7 @@ a {
   
 }
 
-/*MOSTRAR PELICULAS*/
+/*mOsTrAr PeLiCuLaS*/
 
 .display {
   width: 100%;
@@ -319,9 +305,44 @@ a {
     background-color: #000000;
 }
 
-/*login*/
+/*login que  no sirve*/
 
 .container {
       font-family: "Japanese Robot";
+
+}
+
+/*vista de peliculita bonita en la pagina de reserva*/
+
+.peliculanum {
+  display: flex;
+  flex-direction: row;
+  
+  font-family: "Asiana", sans-serif;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.detallin {
+  width: 40%;
+  height: auto;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.detallin img {
+  width: 100%;
+  height: 100%;
+}
+
+.peliculin-info {
+  width: 80%;
+  height: auto;
+  margin: 20px;
+}
+
+.peliculin-info h2 {
+        font-family: "Japanese Robot", sans-serif;
 
 }
