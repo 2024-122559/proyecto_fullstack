@@ -1,0 +1,340 @@
+/*
+ * Archivo: css/tablas.css
+ * Estilos consolidados para componentes (tablas, formularios, tarjetas)
+ * en el Dark Mode Moderno (Fondo #0d1117, Acento #58a6ff).
+ */
+
+/* ------------------- 1. ESTILOS DE TARJETAS Y BOTONES ------------------- */
+
+/* Sombra de Tarjeta (Card Shadow) para Dark Mode */
+.card-shadow {
+    background-color: #161b22;
+    /* Fondo de tarjeta igual al Sidebar */
+    border: 1px solid #2d333b;
+    /* Borde sutil */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    /* Sombra más oscura */
+    color: #f0f6fc;
+}
+
+/* Encabezado de la Tarjeta */
+.card-header {
+    background-color: #161b22;
+    border-bottom: 1px solid #2d333b;
+    color: #f0f6fc;
+    font-weight: 600;
+}
+
+/* Botón 'Nuevo Usuario' (Acento #58a6ff) */
+.btn-warning.shadow {
+    background-color: #58a6ff;
+    /* Azul acento */
+    border-color: #58a6ff;
+    color: #0d1117;
+    /* Texto oscuro para el botón de acento */
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(88, 166, 255, 0.4);
+    /* Sombra de color para destacar */
+}
+
+.btn-warning.shadow:hover {
+    background-color: #79a6e6;
+    border-color: #79a6e6;
+}
+
+/* Contador de usuarios */
+.card-body .fw-bold {
+    color: #58a6ff !important;
+    /* Mantiene el color de acento azul */
+}
+
+/* ------------------- 2. ESTILOS DE TABLA DE DATOS ------------------- */
+
+.table-usuarios {
+    min-width: 700px;
+    margin-bottom: 0;
+    --bs-table-bg: #161b22;
+    /* Fondo de tabla por defecto */
+    --bs-table-color: #f0f6fc;
+    /* Color de texto de tabla por defecto */
+}
+
+/* Encabezado (Header) de la tabla */
+.table-usuarios thead {
+    background-color: #21262d;
+    /* Tono más oscuro para el encabezado */
+    border-bottom: 2px solid #2d333b;
+}
+
+.table-usuarios thead th {
+    color: #c9d1d9;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-top: none;
+    border-bottom: none;
+}
+
+/* Filas del cuerpo de la tabla */
+.table-usuarios tbody tr {
+    transition: background-color 0.3s, transform 0.3s;
+    border-color: #2d333b;
+    /* Borde de fila oscuro */
+}
+
+/* Efecto Hover (al pasar el ratón) */
+.table-hover tbody tr:hover {
+    background-color: #21262d;
+    /* Tono de gris suave al pasar el ratón */
+    transform: scale(1.005);
+}
+
+/* Columna de nombre completo y Avatar */
+.user-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #58a6ff;
+    /* Fondo de avatar con color acento */
+    color: #0d1117;
+    /* Texto oscuro para el avatar claro */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 5px rgba(88, 166, 255, 0.6);
+    /* Sombra de acento */
+}
+
+/* Iconos de Email y Teléfono */
+.table-usuarios td .bi-envelope,
+.table-usuarios td .bi-telephone {
+    color: #8b949e !important;
+}
+
+
+/* ------------------- 3. INSIGNIAS (BADGES) ------------------- */
+
+.badge {
+    padding: 0.4em 0.8em;
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+/* Badge Tipo de Usuario (Info/Acento) */
+.badge.bg-info {
+    background-color: #58a6ff !important;
+    color: #0d1117 !important;
+}
+
+/* Badge Activo (Success) */
+.badge.bg-success {
+    background-color: #3fb950 !important;
+    color: #0d1117 !important;
+}
+
+/* Badge Inactivo (Danger) */
+.badge.bg-danger {
+    background-color: #f85149 !important;
+    color: #0d1117 !important;
+}
+
+/* ------------------- 4. ACCIONES Y MODAL ------------------- */
+
+/* Enlaces de Acción (Editar/Eliminar) */
+.action-link {
+    font-size: 1.1rem;
+    transition: color 0.2s, transform 0.2s;
+    display: inline-block;
+    color: #8b949e;
+}
+
+/* Hover Editar (Azul/Primary) */
+.action-link.link-primary:hover {
+    color: #58a6ff;
+    transform: scale(1.2);
+}
+
+/* Hover Eliminar (Rojo/Danger) */
+.action-link.link-danger:hover {
+    color: #f85149;
+    transform: scale(1.2);
+}
+
+/* Estilos para el MODAL */
+.modal-content {
+    background-color: #161b22;
+    color: #f0f6fc;
+    border: 1px solid #2d333b;
+    border-radius: 12px;
+}
+
+.modal-header {
+    border-bottom-color: #2d333b;
+}
+
+.modal-header .btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+    opacity: 0.8;
+}
+
+/* Botones de acción del modal */
+.modal-body .btn-outline-danger {
+    color: #f85149;
+    border-color: #f85149;
+}
+
+.modal-body .btn-outline-danger:hover {
+    background-color: #f85149;
+    color: #161b22;
+}
+
+.modal-body .btn-success {
+    background-color: #3fb950;
+    border-color: #3fb950;
+    color: #161b22;
+    font-weight: 700;
+}
+
+.modal-body .btn-success:hover {
+    background-color: #2ea043;
+    border-color: #2ea043;
+}
+
+/* ------------------- 5. ESTILOS DE FORMULARIOS (Inputs, Checkboxes, Select) ------------------- */
+
+/* Estilos para INPUTS DE TEXTO Y CONTROLES GENERALES */
+.form-control {
+    background-color: #0d1117;
+    /* Fondo de campo oscuro */
+    border: 1px solid #2d333b;
+    color: #f0f6fc;
+}
+
+.form-control:focus {
+    background-color: #0d1117;
+    border-color: #58a6ff;
+    /* Borde de enfoque azul acento */
+    box-shadow: 0 0 0 0.25rem rgba(88, 166, 255, 0.25);
+    color: #f0f6fc;
+}
+
+.form-label {
+    color: #c9d1d9;
+}
+
+/* ESTILOS para SELECTS (Menús Desplegables) */
+.form-select {
+    background-color: #0d1117;
+    color: #f0f6fc;
+    border: 1px solid #2d333b;
+    border-radius: 8px;
+    padding: 0.75rem 2.25rem 0.75rem 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-select:focus {
+    background-color: #0d1117;
+    border-color: #58a6ff;
+    box-shadow: 0 0 0 0.25rem rgba(88, 166, 255, 0.25);
+    color: #f0f6fc;
+}
+
+/* Color de la flecha del select */
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23c9d1d9' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.form-select:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2358a6ff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.form-select option {
+    background-color: #161b22;
+    color: #f0f6fc;
+    border: none;
+}
+
+.form-select option:checked {
+    background-color: #58a6ff;
+    color: #0d1117;
+}
+
+/* ESTILOS para CHECKBOXES Y RADIO BUTTONS */
+.form-check {
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem !important;
+    margin-left: 1.5rem;
+    /* Ajuste para compensar */
+}
+
+.form-check-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.form-check-label {
+    color: #f0f6fc;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+}
+
+/* Elemento visual del checkbox (el cuadrado) */
+.form-check-label::before {
+    content: '';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.75rem;
+    border: 2px solid #58a6ff;
+    border-radius: 4px;
+    background-color: #0d1117;
+    transition: all 0.2s ease-in-out;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+/* Estado Checked */
+.form-check-input:checked+.form-check-label::before {
+    background-color: #58a6ff;
+    border-color: #58a6ff;
+    box-shadow: 0 0 8px rgba(88, 166, 255, 0.5);
+}
+
+/* Icono de Check (el tick) */
+.form-check-label::after {
+    content: '\F26E';
+    /* Icono bi-check */
+    font-family: 'bootstrap-icons' !important;
+    font-size: 1rem;
+    color: #0d1117;
+    position: absolute;
+    left: 8px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Mostrar el tick */
+.form-check-input:checked+.form-check-label::after {
+    opacity: 1;
+}
+
+/* Estilo para el ícono dentro del label */
+.form-check-label i.bi {
+    color: #58a6ff;
+}
+
+.form-check-label:hover::before {
+    border-color: #79a6e6;
+}

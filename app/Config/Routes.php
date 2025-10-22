@@ -76,9 +76,24 @@ $routes->get('eliminar_salas', 'SalasController::eliminarSalas');
 $routes->post('modificar_salas', 'SalasController::modificarSalas');
 $routes->get('buscar_salas', 'SalasController::buscarSalas');
 
-/**usuarios */
-$routes->get('usuarios', 'UsuariosController::index');
-$routes->post('agregar_usuarios', 'UsuariosController::agregarUsuarios');
-$routes->get('eliminar_usuarios', 'UsuariosController::eliminarUsuarios');
-$routes->post('modificar_usuarios', 'UsuariosController::modificarUsuarios');
-$routes->get('buscar_usuarios', 'UsuariosController::buscarUsuarios');
+/** Usuarios */
+$routes->get('usuarios', 'UsuariosController::vistaUsuarios');          // Lista de usuarios
+$routes->post('usuarios/agregar', 'UsuariosController::agregarUsuario'); // Inserta un nuevo usuario
+$routes->get('usuarios/eliminar/(:num)', 'UsuariosController::eliminarUsuario/$1'); // Elimina usuario
+$routes->get('usuarios/editar/(:num)', 'UsuariosController::buscarUsuario/$1');    // Formulario de edición
+$routes->post('usuarios/actualizar/(:num)', 'UsuariosController::actualizarUsuario/$1'); // Actualiza usuario
+
+
+  
+
+
+/** Panel de control */
+$routes->get('panel', 'PanelController::index');
+
+
+$routes->get('/login', 'LoginController::index');
+$routes->post('/login/autenticar', 'LoginController::autenticar');
+$routes->get('/logout', 'LoginController::logout');
+
+$routes->get('/reservas', 'ReservasController::index');
+$routes->get('/admin', 'AdminController::index');

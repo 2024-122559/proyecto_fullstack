@@ -1,0 +1,111 @@
+/*
+    CSS Dark Mode Moderno
+    - Fondo: Negro profundo
+    - Sidebar: Gris/Azul oscuro para contraste
+    - Resaltado: Cian brillante y sombreado
+*/
+
+/* 1. Estilos Globales */
+.dark-mode {
+    background-color: #0d1117;
+    /* Fondo negro muy profundo (inspirado en GitHub dark) */
+    min-height: 100vh;
+    color: #f0f6fc;
+    /* Color de texto principal (blanco suave) */
+}
+
+/* 2. Estilos del Sidebar */
+.sidebar {
+    background-color: #161b22;
+    /* Fondo del sidebar un poco más claro que el fondo principal */
+    color: #ffffff;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.4);
+    /* Sombra más pronunciada para un efecto de elevación */
+    width: 250px;
+    flex-shrink: 0;
+    border-right: 1px solid #2d333b;
+    /* Borde sutil */
+}
+
+/* Título del panel */
+.sidebar h4 {
+    color: #58a6ff !important;
+    /* Azul vibrante y moderno */
+    border-color: #2d333b !important;
+}
+
+/* Estilos de los enlaces de navegación */
+.sidebar .nav-link {
+    color: #c9d1d9;
+    /* Gris claro para enlaces inactivos */
+    padding: 12px 15px;
+    /* Más padding para que sean más grandes */
+    margin-bottom: 5px;
+    border-radius: 8px;
+    /* Bordes redondeados sutiles */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Hover (efecto al pasar el ratón) */
+.sidebar .nav-link:hover {
+    background-color: #21262d;
+    /* Tono de gris suave al pasar el ratón */
+    color: #ffffff !important;
+}
+
+/* Estilo para el enlace ACTIVO */
+.sidebar .nav-link.active {
+    background-color: #0c336b;
+    /* Fondo azul oscuro y sólido */
+    color: #ffffff !important;
+    font-weight: 600;
+    /* Un poco más de peso a la fuente */
+    border-left: 4px solid #58a6ff;
+    /* Barra de color en el lado izquierdo para destacar */
+    padding-left: 11px;
+    /* Ajuste para compensar el borde */
+}
+
+/* 3. Estilos del Contenido Principal */
+.main-content {
+    padding: 2rem !important;
+}
+
+.main-content h1 {
+    color: #58a6ff;
+    /* Título principal en el color de acento */
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #2d333b;
+    padding-bottom: 0.5rem;
+}
+
+.main-content p {
+    color: #8b949e;
+    /* Párrafos en gris más claro */
+}
+
+/* Estilos para el ejemplo de tarjeta/bloque de contenido */
+.bg-opacity-10 {
+    background-color: #1f2a40 !important;
+    /* Fondo de la tarjeta más oscuro */
+    border: 1px solid #2d333b;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 4. Responsive Design */
+
+@media (max-width: 767.98px) {
+    .sidebar.d-md-block {
+        display: none !important;
+    }
+
+    #sidebarCollapse .sidebar {
+        width: 100%;
+        box-shadow: none;
+        background-color: #161b22;
+    }
+
+    .main-content {
+        padding: 1rem !important;
+    }
+}
