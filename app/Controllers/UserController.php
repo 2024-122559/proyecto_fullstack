@@ -1,15 +1,22 @@
 <?php
 namespace App\Controllers;
 
-class ReservasController extends BaseController
+class UserController extends BaseController
 {
-    public function index(){
+    public function index()
+    {
         $session = session();
-        if(!$session->get('logged_in') || $session->get('tipo_usuario') !== 'usuario'){
-            $session->set('redirect_after_login','/user');
+
+
+        if (!$session->get('logged_in')) {
+            $session->set('redirect_after_login', '/user');
             return redirect()->to('/login');
         }
+        if ($session->get('tipo_usuario') === 'admin') {
+            return redirect()->to('/admin');
+        }
 
-        return view('vista_prueba'); 
+        $data['nombre'] = $session->get('nombre');
+        return view('cine_index', $data);
     }
 }

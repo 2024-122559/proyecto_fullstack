@@ -60,8 +60,10 @@ $routes->get('/login', 'LoginController::index');
 $routes->post('/login/autenticar', 'LoginController::autenticar');
 $routes->get('/logout', 'LoginController::logout');
 
+
 $routes->get('/user', 'UserController::index');
 $routes->get('/admin', 'AdminController::index');
+
 /**reservas */
 $routes->get('reservas/listar', 'ReservasController::listar');
 $routes->get('reservas/crear', 'ReservasController::crear');

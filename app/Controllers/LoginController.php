@@ -49,8 +49,11 @@ class LoginController extends BaseController
         return redirect()->back()->with('error','Usuario o contraseña incorrectos');
     }
 
-    public function logout(){
-        session()->destroy();
-        return redirect()->to('/');
-    }
+   public function logout()
+{
+    $session = session();
+    $session->destroy(); 
+    return redirect()->to('login');
+}
+
 }
