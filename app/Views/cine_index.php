@@ -30,7 +30,7 @@
         <div class="buttonhead">
       
       
-            <a class="nav-link" href="<?= base_url('iniciar_sesion'); ?>">Iniciar Sesion</a>
+            <a class="nav-link" href="<?= base_url('login'); ?>">Iniciar Sesion</a>
         
             <a class="nav-link" href="<?= base_url('movies'); ?>">Reservar</a>
         </div>
