@@ -14,7 +14,7 @@ class FuncionModel extends Model
         'sala_id',
         'fecha',
         'hora_inicio',
-        'hora_fin'
+        'hora_fin',
         'precio_base',
         'estado',
         'fecha_creacion'
