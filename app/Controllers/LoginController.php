@@ -39,7 +39,7 @@ class LoginController extends BaseController
                 if($usuario['tipo_usuario'] === 'admin'){
                     return redirect()->to('/admin');
                 } else {
-                    $redirect = $session->get('redirect_after_login') ?? '/reservas';
+                    $redirect = $session->get('redirect_after_login') ?? '/user';
                     $session->remove('redirect_after_login');
                     return redirect()->to($redirect);
                 }

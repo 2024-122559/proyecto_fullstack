@@ -41,12 +41,7 @@ $routes->get('eliminar_funciones', 'FuncionesController::eliminarFunciones');
 $routes->post('modificar_funciones', 'FuncionesController::modificarFunciones');
 $routes->get('buscar_funciones', 'FuncionesController::buscarFunciones');
 
-/**genero */
-$routes->get('generos', 'GenerosController::index');
-$routes->post('agregar_generos', 'GenerosController::agregarGeneros');
-$routes->get('eliminar_generos', 'GenerosController::eliminarGeneros');
-$routes->post('modificar_generos', 'GenerosController::modificarGeneros');
-$routes->get('buscar_generos', 'GenerosController::buscarGeneros');
+
 
 /**pagos */
 $routes->get('pagos', 'PagosController::index');
@@ -62,19 +57,8 @@ $routes->get('eliminar_peliculas', 'PeliculasController::eliminarPeliculas');
 $routes->post('modificar_peliculas', 'PeliculasController::modificarPeliculas');
 $routes->get('buscar_peliculas', 'PeliculasController::buscarPeliculas');
 
-/**reservas */
-$routes->get('reservas', 'ReservasController::index');
-$routes->post('agregar_reservas', 'ReservasController::agregarReservas');
-$routes->get('eliminar_reservas', 'ReservasController::eliminarReservas');
-$routes->post('modificar_reservas', 'ReservasController::modificarReservas');
-$routes->get('buscar_reservas', 'ReservasController::buscarReservas');
 
-/**salas */
-$routes->get('salas', 'SalasController::index');
-$routes->post('agregar_salas', 'SalasController::agregarSalas');
-$routes->get('eliminar_salas', 'SalasController::eliminarSalas');
-$routes->post('modificar_salas', 'SalasController::modificarSalas');
-$routes->get('buscar_salas', 'SalasController::buscarSalas');
+
 
 /** Usuarios */
 $routes->get('usuarios', 'UsuariosController::vistaUsuarios');          // Lista de usuarios
@@ -95,5 +79,5 @@ $routes->get('/login', 'LoginController::index');
 $routes->post('/login/autenticar', 'LoginController::autenticar');
 $routes->get('/logout', 'LoginController::logout');
 
-$routes->get('/reservas', 'ReservasController::index');
+$routes->get('/user', 'UserController::index');
 $routes->get('/admin', 'AdminController::index');
