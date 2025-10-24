@@ -11,8 +11,12 @@ class MoviesController extends Controller
         $peliculaModel = new PeliculaModel();
         
         $data['peliculas'] = $peliculaModel->findAll();
+
         
         return view('peliculas', $data);
+
+        
     }
 }
 ?>
+
