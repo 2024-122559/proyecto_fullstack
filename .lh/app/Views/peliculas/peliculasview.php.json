@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Views/peliculas/peliculasview.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1759766063116,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1759766063116,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\r\n<html lang=\"es\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Películas</title>\r\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\r\n    <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>\r\n</head>\r\n<body class=\"container py-4\">\r\n<?php if (session()->getFlashdata('mensaje')): ?>\r\n<script>\r\nlet mensaje = \"<?= session()->getFlashdata('mensaje') ?>\";\r\nlet texto = mensaje == 'agregado' ? 'Se agregó la película correctamente' :\r\n            mensaje == 'se jue' ? 'Se eliminó la película correctamente' :\r\n            'Acción completada';\r\nSwal.fire({\r\n    icon: 'success',\r\n    title: 'Éxito',\r\n    text: texto,\r\n    timer: 2000,\r\n    showConfirmButton: false\r\n});\r\n</script>\r\n<?php endif; ?>\r\n<?php if (session()->getFlashdata('mensajes')): ?>\r\n<script>\r\nSwal.fire({\r\n    title: \"Éxito\",\r\n    text: \"<?= session()->getFlashdata('mensajes') ?>\",\r\n    icon: \"success\",\r\n    timer: 2000,\r\n    showConfirmButton: false\r\n});\r\n</script>\r\n<?php endif; ?>\r\n<?php if (session()->getFlashdata('error')): ?>\r\n<script>\r\nSwal.fire({\r\n    title: \"Error\",\r\n    text: \"<?= addslashes(session()->getFlashdata('error')) ?>\",\r\n    icon: \"error\",\r\n    timer: 3000,\r\n    showConfirmButton: false\r\n});\r\n</script>\r\n<?php endif; ?>\r\n<div class=\"d-flex justify-content-between align-items-center mb-3\">\r\n    <h2>Lista de Películas</h2>\r\n    <a href=\"<?= base_url('peliculas/crear'); ?>\" class=\"btn btn-success\">+ Agregar Película</a>\r\n</div>\r\n<table class=\"table table-bordered table-striped table-hover\">\r\n    <thead class=\"table-dark\">\r\n        <tr>\r\n            <th>ID</th>\r\n            <th>Título</th>\r\n            <th>Género ID</th>\r\n            <th>Duración (min)</th>\r\n            <th>Sinopsis</th>\r\n            <th>Poster URL</th>\r\n            <th>Director</th>\r\n            <th>Clasificación</th>\r\n            <th>Fecha Estreno</th>\r\n            <th>Estado ID</th>\r\n            <th>Acciones</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <?php foreach ($peliculas as $pelicula): ?>\r\n        <tr>\r\n            <td><?= $pelicula['id']; ?></td>\r\n            <td><?= $pelicula['titulo']; ?></td>\r\n            <td><?= $pelicula['id_genero']; ?></td>\r\n            <td><?= $pelicula['duracion_minutos']; ?></td>\r\n            <td><?= $pelicula['sinopsis']; ?></td>\r\n            <td><?= $pelicula['poster_url']; ?></td>\r\n            <td><?= $pelicula['director']; ?></td>\r\n            <td><?= $pelicula['clasificacion']; ?></td>\r\n            <td><?= $pelicula['fecha_estreno']; ?></td>\r\n            <td><?= $pelicula['id_estado']; ?></td>\r\n            <td>\r\n                <a href=\"<?= base_url('peliculas/editar/'.$pelicula['id']); ?>\" class=\"btn btn-sm btn-info\">Editar</a>\r\n                <a href=\"<?= base_url('peliculas/eliminar/'.$pelicula['id']); ?>\" class=\"btn btn-sm btn-danger\" onclick=\"return confirm('¿Desea eliminar esta película?')\">Eliminar</a>\r\n            </td>\r\n        </tr>\r\n        <?php endforeach; ?>\r\n    </tbody>\r\n</table>\r\n</body>\r\n</html>"
+        }
+    ]
+}
