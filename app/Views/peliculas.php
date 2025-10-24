@@ -27,15 +27,21 @@
         <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="container">
                 <div class="buttonhead">
+                    <?php if(session()->get('logged_in')): ?>
+                    <div class="me-3 user-avatar" title="<?= esc(session()->get('id')) ?>">
+                        <?= esc(substr(session()->get('id'), 0, 1)) ?>
+                    </div>
 
-
-                    <a class="nav-link" href="<?= base_url('iniciar_sesion'); ?>">Iniciar Sesion</a>
-
-                    <a class="nav-link" href="<?= base_url('cine'); ?>">Regresar</a>
+                    <a class="nav-link" href="<?= base_url('logout'); ?>">Cerrar Sesión</a>
+                    <a class="nav-link" href="<?= base_url('movies'); ?>">Reservar</a>
+                    <?php else: ?>
+                    <a class="nav-link" href="<?= base_url('login'); ?>">Iniciar Sesión</a>
+                    <a class="nav-link" href="<?= base_url('movies'); ?>">Reservar</a>
+                    <?php endif; ?>
                 </div>
-
             </div>
         </nav>
+
 
         <div class="vineta">
             <span>Peliculas</span>

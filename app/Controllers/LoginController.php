@@ -26,7 +26,7 @@ class LoginController extends BaseController
                 $session->regenerate();
                 $sessionData = [
                     'id' => $usuario['usuario_id'],
-                    'nombre' => $usuario['nombre'],
+                    
                     'tipo_usuario' => $usuario['tipo_usuario'],
                     'logged_in' => true
                 ];

@@ -1,0 +1,140 @@
+/* asientos.css */
+
+/* Reset básico y configuración global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuente global para toda la página */
+body,
+.container.py-5,
+.container.py-5 h2,
+.container.py-5 p,
+.btn-asiento,
+.btn-success,
+.btn-secondary,
+button,
+input,
+label {
+    font-family: "Japanese Robot", sans-serif !important;
+}
+
+/* Fondo de la página */
+body {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #0b0b2b, #d90abd 70%, #090a0f);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Contenedor principal */
+.container.py-5 {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 40px rgba(199, 1, 254, 0.6);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Título de la película */
+.container.py-5 h2 {
+    color: #ff00ff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(199, 1, 254, 0.8);
+}
+
+/* Texto de selección de asiento */
+.container.py-5 p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Grid de asientos */
+#asientos-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+/* Botón de asiento */
+.btn-asiento {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: rgba(100, 100, 255, 0.3);
+    border: 2px solid #6e108b;
+    color: white;
+    transition: all 0.3s ease;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* Botón de asiento seleccionado */
+.btn-asiento.selected {
+    background-color: #6e108b;
+    box-shadow: 0 0 10px rgba(199, 1, 254, 0.8);
+    transform: scale(1.1);
+}
+
+/* Botón de asiento ocupado */
+.btn-asiento.ocupado {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Botón de confirmar */
+.btn-success {
+    display: block;
+    background-color: #6e108b;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    margin: 20px auto;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-success:hover {
+    background-color: #000000;
+}
+
+/* Botón de cancelar */
+.btn-secondary {
+    display: block;
+    background-color: #555;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    margin: 10px auto;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Pantalla de cine (simulada) */
+.pantalla {
+    width: 80%;
+    height: 30px;
+    background-color: #ccc;
+    margin: 20px auto;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    color: #333;
+    font-size: 1rem;
+}
+

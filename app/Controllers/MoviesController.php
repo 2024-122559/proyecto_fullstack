@@ -14,5 +14,7 @@ class MoviesController extends Controller
         
         return view('peliculas', $data);
     }
+
+    
 }
 ?>

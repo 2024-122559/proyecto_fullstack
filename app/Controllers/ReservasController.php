@@ -16,39 +16,55 @@ class ReservasController extends BaseController
         return view('reservas/crearReservas');
     }
 
-    public function guardar()
-    {
-        $reservaModel = new ReservaModel();
-        $codigo_qr = $this->request->getPost('codigo_qr');
+   public function guardar()
+{
+    $reservaModel = new ReservaModel();
+    $codigo_qr = $this->request->getPost('codigo_qr');
 
-        $existe = $reservaModel->where('codigo_qr', $codigo_qr)->first();
-        if ($existe) {
-            log_message('debug', 'Código QR duplicado detectado: ' . $codigo_qr);
-            return redirect()->to(base_url('reservas/crear'))
-                           ->with('error', 'El código QR "' . $codigo_qr . '" ya existe.')
-                           ->withInput();
-        }
-
-        $datos = [
-            'usuario_id' => $this->request->getPost('usuario_id'),
-            'funcion_id' => $this->request->getPost('funcion_id'),
-            'total' => $this->request->getPost('total'),
-            'fecha_reserva' => $this->request->getPost('fecha_reserva'),
-            'codigo_qr' => $codigo_qr,
-        ];
-
-        try {
-            log_message('debug', 'Intentando insertar reserva: ' . json_encode($datos));
-            $reservaModel->insert($datos);
-            log_message('debug', 'Reserva insertada, redirigiendo a reservas/listar');
-            return redirect()->to(base_url('reservas/listar'))->with('mensaje', 'agregado');
-        } catch (\Exception $e) {
-            log_message('error', 'Error al insertar reserva: ' . $e->getMessage());
-            return redirect()->to(base_url('reservas/crear'))
-                           ->with('error', 'Error al guardar la reserva: ' . $e->getMessage())
-                           ->withInput();
-        }
+    $existe = $reservaModel->where('codigo_qr', $codigo_qr)->first();
+    if ($existe) {
+        log_message('debug', 'Código QR duplicado detectado: ' . $codigo_qr);
+        return redirect()->to(base_url('reservas/crear'))
+                       ->with('error', 'El código QR "' . $codigo_qr . '" ya existe.')
+                       ->withInput();
     }
+
+    $datos = [
+        'usuario_id' => $this->request->getPost('usuario_id'),
+        'funcion_id' => $this->request->getPost('funcion_id'),
+        'total' => $this->request->getPost('total'),
+        'fecha_reserva' => $this->request->getPost('fecha_reserva'),
+        'codigo_qr' => $codigo_qr,
+    ];
+
+    try {
+        $reservaModel->insert($datos);
+        $reserva_id = $reservaModel->getInsertID(); // Obtener el ID insertado
+        log_message('debug', 'Reserva insertada con ID: ' . $reserva_id);
+        // Redirigir al detalle de la reserva
+        return redirect()->to(base_url('reservas/detalle/' . $reserva_id));
+    } catch (\Exception $e) {
+        log_message('error', 'Error al insertar reserva: ' . $e->getMessage());
+        return redirect()->to(base_url('reservas/crear'))
+                       ->with('error', 'Error al guardar la reserva: ' . $e->getMessage())
+                       ->withInput();
+    }
+}
+
+// Nuevo método para detalle
+public function detalle($id)
+{
+    $reservaModel = new ReservaModel();
+    $reserva = $reservaModel->find($id);
+
+    if (!$reserva) {
+        throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Reserva no encontrada');
+    }
+
+    $data['reserva'] = $reserva;
+    return view('reservas/detalle', $data);
+}
+
 
     public function editar($id)
     {
@@ -101,4 +117,6 @@ class ReservasController extends BaseController
                            ->with('error', 'Error al eliminar la reserva: ' . $e->getMessage());
         }
     }
+    
+    
 }

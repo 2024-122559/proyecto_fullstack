@@ -7,17 +7,16 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-/*agregado por abe*/
+/* Cine */
 $routes->get('cine', 'CineController::index');
-$routes->get('reservar/(:num)', 'ReservarController::index/$1');
-$routes->get('reservas/listar', 'ReservasController::listar');
 
+/* Películas */
+$routes->get('movies', 'MoviesController::index');                 // Listado de películas
+$routes->get('reservar/(:num)', 'ReservarController::index/$1');  // Ver funciones de una película
 
-
-
-$routes->get('movies', 'MoviesController::index');
-
-
+/* Selección y reserva de asientos */
+$routes->get('reservas/asientos', 'ReservarController::asientos');          // Selección de asiento
+$routes->post('reservas/detalle', 'ReservarController::detalle'); 
 
 
 
@@ -35,12 +34,6 @@ $routes->get('generos/editar/(:num)', 'GenerosController::editar/$1');
 $routes->post('generos/actualizar/(:num)', 'GenerosController::actualizar/$1');
 $routes->get('generos/eliminar/(:num)', 'GenerosController::eliminar/$1');
 
-
-
-
-
-
-
 /** Usuarios */
 $routes->get('usuarios', 'UsuariosController::vistaUsuarios');          // Lista de usuarios
 $routes->post('usuarios/agregar', 'UsuariosController::agregarUsuario'); // Inserta un nuevo usuario
@@ -48,18 +41,11 @@ $routes->get('usuarios/eliminar/(:num)', 'UsuariosController::eliminarUsuario/$1
 $routes->get('usuarios/editar/(:num)', 'UsuariosController::buscarUsuario/$1');    // Formulario de edición
 $routes->post('usuarios/actualizar/(:num)', 'UsuariosController::actualizarUsuario/$1'); // Actualiza usuario
 
-
-  
-
-
 /** Panel de control */
 $routes->get('panel', 'PanelController::index');
-
-
 $routes->get('/login', 'LoginController::index');
 $routes->post('/login/autenticar', 'LoginController::autenticar');
 $routes->get('/logout', 'LoginController::logout');
-
 
 $routes->get('/user', 'UserController::index');
 $routes->get('/admin', 'AdminController::index');
@@ -81,3 +67,17 @@ $routes->get('salas/editar/(:num)', 'SalasController::editar/$1');
 $routes->post('salas/actualizar/(:num)', 'SalasController::actualizar/$1');
 $routes->get('salas/eliminar/(:num)', 'SalasController::eliminar/$1');
 
+/**funciones */
+$routes->get('funciones', 'FuncionesController::vistaFunciones');
+$routes->post('funciones/agregar', 'FuncionesController::agregarFuncion');
+$routes->get('funciones/eliminar/(:num)', 'FuncionesController::eliminarFuncion/$1');
+$routes->get('funciones/editar/(:num)', 'FuncionesController::buscarFuncion/$1');
+$routes->post('funciones/actualizar/(:num)', 'FuncionesController::actualizarFuncion/$1');
+
+/**peliculas */
+$routes->get('peliculas', 'PeliculasController::vistaPeliculas');
+$routes->post('peliculas/agregar', 'PeliculasController::agregarPelicula');
+$routes->get('peliculas/eliminar/(:num)', 'PeliculasController::eliminarPelicula/$1');
+$routes->get('peliculas/editar/(:num)', 'PeliculasController::buscarPelicula/$1');
+$routes->post('peliculas/actualizar/(:num)', 'PeliculasController::actualizarPelicula/$1');
+$routes->get('reservar/(:num)', 'PeliculasController::verReservar/$1');

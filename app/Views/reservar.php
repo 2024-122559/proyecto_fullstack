@@ -29,8 +29,8 @@
             <div class="container">
                 <div class="buttonhead">
                     <?php if(session()->get('logged_in')): ?>
-                    <div class="me-3 user-avatar" title="<?= esc(session()->get('nombre')) ?>">
-                        <?= esc(substr(session()->get('nombre'), 0, 1)) ?>
+                    <div class="me-3 user-avatar" title="<?= esc(session()->get('id')) ?>">
+                        <?= esc(substr(session()->get('id'), 0, 1)) ?>
                     </div>
 
                     <a class="nav-link" href="<?= base_url('logout'); ?>">Cerrar Sesión</a>
@@ -62,48 +62,68 @@
                 <p><strong>Clasificación:</strong> <?= esc($pelicula['clasificacion']) ?></p>
 
                 <p><strong>Sinopsis:</strong> <?= esc($pelicula['sinopsis']) ?></p>
+                <br>
+                <br>
+                <br>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn-reservar " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Reservar
+                    Ver Funciones
                 </button>
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <form method="post" action="<?= base_url('reservas/guardar'); ?>" class="card p-4 shadow">
-                <div class="mb-3">
-                    <label class="form-label">Usuario ID</label>
-                    <input type="number" name="usuario_id" class="form-control" value="<?= esc(old('usuario_id')) ?>"
-                          readonly>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Función ID</label>
-                    <input type="number" name="funcion_id" class="form-control" value="<?= esc(old('funcion_id')) ?>"
-                        required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Total</label>
-                    <input type="number" step="0.01" name="total" class="form-control" value="<?= esc(old('total')) ?>"
-                        required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Fecha Reserva</label>
-                    <input type="date" name="fecha_reserva" class="form-control"
-                        value="<?= esc(old('fecha_reserva')) ?>" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Código QR</label>
-                    <input type="text" name="codigo_qr" class="form-control" value="<?= esc(old('codigo_qr')) ?>"
-                        required>
-                </div>
-                <button type="submit" class="btn btn-success">Guardar</button>
-                <a href="<?= base_url('reservas/listar'); ?>" class="btn btn-secondary">Cancelar</a>
-            </form>
+                            <div class="modal-header bg-dark text-white">
+                                <h5 class="modal-title" id="exampleModalLabel">Funciones disponibles</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                    aria-label="Cerrar"></button>
+                            </div>
+                            <div class="modal-body">
+                                <?php if(!empty($funciones)): ?>
+                                <table class="table table-hover align-middle">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Hora</th>
+                                            <th>Sala</th>
+                                            <th>Precio</th>
+                                            <th>Acción</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($funciones as $f): ?>
+                                        <tr>
+                                            <td><?= esc($f['funcion_id']) ?></td>
+                                            <td><?= esc($f['hora_inicio']) ?> - <?= esc($f['hora_fin']) ?></td>
+                                            <td><?= esc($f['sala_id']) ?></td>
+                                            <td><?= esc($f['precio_base']) ?></td>
+                                            <td>
+                                                <form method="get" action="<?= base_url('reservas/asientos'); ?>">
+                                                    <input type="hidden" name="usuario_id" value="<?= session()->get('id') ?>">
+                                                    <input type="hidden" name="funcion_id" value="<?= esc($f['funcion_id']) ?>">
+                                                    <input type="hidden" name="total"
+                                                        value="<?= esc($f['precio_base']) ?>">
+                                                    <input type="hidden" name="fecha_reserva"
+                                                        value="<?= date('Y-m-d') ?>">
+                                                    <input type="hidden" name="codigo_qr" value="<?= uniqid('QR_') ?>">
+                                                    <button type="submit"
+                                                        class="btn btn-success btn-sm">Seleccionar  Asiento </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                                <?php else: ?>
+                                <p>No hay funciones disponibles para esta película.</p>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
+
 
             </div>
             <?php else: ?>
@@ -112,7 +132,7 @@
         </div>
         <br>
         <div class="reserva-detalle">
-            
+
         </div>
 
         <div class="piecito">
@@ -124,6 +144,11 @@
 
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous">
+</script>
+
 </html>
