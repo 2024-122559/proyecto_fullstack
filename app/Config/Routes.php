@@ -35,11 +35,12 @@ $routes->post('modificar_estados', 'EstadosController::modificarEstados');
 $routes->get('buscar_estados', 'EstadosController::buscarEstados');
 
 /**funciones */
-$routes->get('funciones', 'FuncionesController::index');
-$routes->post('agregar_funciones', 'FuncionesController::agregarFunciones');
-$routes->get('eliminar_funciones', 'FuncionesController::eliminarFunciones');
-$routes->post('modificar_funciones', 'FuncionesController::modificarFunciones');
-$routes->get('buscar_funciones', 'FuncionesController::buscarFunciones');
+$routes->get('funciones/listar', 'FuncionesController::listar');
+$routes->get('funciones/crear', 'FuncionesController::crear');
+$routes->post('funciones/guardar', 'FuncionesController::guardar');
+$routes->get('funciones/editar/(:num)', 'FuncionesController::editar/$1');
+$routes->post('funciones/actualizar/(:num)', 'FuncionesController::actualizar/$1');
+$routes->get('funciones/eliminar/(:num)', 'FuncionesController::eliminar/$1');
 
 /**genero */
 $routes->get('generos', 'GenerosController::index');

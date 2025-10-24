@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Models/FuncionModel.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1759764811687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1759764811687,
+            "name": "Commit-0",
+            "content": "<?php\r\n\r\nnamespace App\\Models;\r\n\r\nuse CodeIgniter\\Model;\r\n\r\nclass FuncionModel extends Model\r\n{\r\n    protected $table         = 'funciones';\r\n    protected $primaryKey = \"funcion_id\";\r\n    protected $allowedFields = [\r\n        'funcion_id',\r\n        'pelicula_id',\r\n        'sala_id',\r\n        'fecha',\r\n        'hora_inicio',\r\n        'hora_fin',\r\n        'precio_base',\r\n        'estado',\r\n        'fecha_creacion'\r\n    ];\r\n}\r\n\r\n?>"
+        }
+    ]
+}

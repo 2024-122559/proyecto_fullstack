@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Controllers/BaseController copy.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1759255777146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1759255777146,
+            "name": "Commit-0",
+            "content": "<?php\r\n\r\nnamespace App\\Controllers;\r\n\r\nuse CodeIgniter\\Controller;\r\nuse CodeIgniter\\HTTP\\CLIRequest;\r\nuse CodeIgniter\\HTTP\\IncomingRequest;\r\nuse CodeIgniter\\HTTP\\RequestInterface;\r\nuse CodeIgniter\\HTTP\\ResponseInterface;\r\nuse Psr\\Log\\LoggerInterface;\r\n\r\n/**\r\n * Class BaseController\r\n *\r\n * BaseController provides a convenient place for loading components\r\n * and performing functions that are needed by all your controllers.\r\n * Extend this class in any new controllers:\r\n *     class Home extends BaseController\r\n *\r\n * For security be sure to declare any new methods as protected or private.\r\n */\r\nabstract class BaseController extends Controller\r\n{\r\n    /**\r\n     * Instance of the main Request object.\r\n     *\r\n     * @var CLIRequest|IncomingRequest\r\n     */\r\n    protected $request;\r\n    PROTECTED $session;\r\n\r\n    /**\r\n     * An array of helpers to be loaded automatically upon\r\n     * class instantiation. These helpers will be available\r\n     * to all other controllers that extend BaseController.\r\n     *\r\n     * @var list<string>\r\n     */\r\n    protected $helpers = [];\r\n\r\n    /**\r\n     * Be sure to declare properties for any property fetch you initialized.\r\n     * The creation of dynamic property is deprecated in PHP 8.2.\r\n     */\r\n    // protected $session;\r\n\r\n    /**\r\n     * @return void\r\n     */\r\n    public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)\r\n    {\r\n        // Do Not Edit This Line\r\n        parent::initController($request, $response, $logger);\r\n\r\n        // Preload any models, libraries, etc, here.\r\n\r\n        // E.g.: $this->session = service('session');\r\n    }\r\n}\r\n"
+        }
+    ]
+}
