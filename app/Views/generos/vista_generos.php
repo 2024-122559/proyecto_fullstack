@@ -19,43 +19,14 @@
 
 <body class="bg-dark text-light">
 
-    <!-- Sidebar Offcanvas para móviles -->
-    <div class="offcanvas offcanvas-start text-light bg-dark" tabindex="-1" id="offcanvasSidebar"
-        aria-labelledby="offcanvasSidebarLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasSidebarLabel">Panel de Control</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                aria-label="Cerrar"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="<?= base_url('cine_index') ?>">
-                        <i class="bi bi-house-door-fill me-2"></i>Inicio
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-secondary" href="<?= base_url('usuarios') ?>">
-                        <i class="bi bi-speedometer2 me-2"></i>Usuarios
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active text-white" href="<?= base_url('generos') ?>">
-                        <i class="bi bi-bookmark-fill me-2"></i>Géneros
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <div class="dark-mode d-flex">
 
-    <div class="d-flex">
-
-        <!-- Sidebar Desktop -->
+        <!-- Sidebar para pantallas grandes -->
         <div class="sidebar col-md-3 col-lg-2 p-3 d-none d-md-block bg-dark text-light">
             <h4 class="mb-4 border-bottom pb-2">Panel de Control</h4>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link text-secondary" href="<?= base_url('cine_index') ?>">
+                    <a class="nav-link active text-white" href="<?= base_url('cine_index') ?>">
                         <i class="bi bi-house-door-fill me-2"></i>Inicio
                     </a>
                 </li>
@@ -65,22 +36,130 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-white" href="<?= base_url('generos') ?>">
+                    <a class="nav-link text-secondary" href="<?= base_url('reservas/listar') ?>">
+                        <i class="bi bi-ticket-fill me-2"></i>Reservas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('generos/listar') ?>">
                         <i class="bi bi-bookmark-fill me-2"></i>Géneros
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('salas/listar') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Salas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('funciones') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Funciones
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('peliculas') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Peliculas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('asientos') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Asientos
+                    </a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('estados') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Estados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('detalles_reservas') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Detalle Reservas
                     </a>
                 </li>
             </ul>
         </div>
 
         <!-- Contenido principal -->
-        <div class="flex-grow-1 p-3">
+        <div class="main-content flex-grow-1 p-4">
 
-            <!-- Botón Offcanvas móvil -->
-            <button class="btn btn-outline-light d-md-none mb-3" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+            <!-- Botón para móviles -->
+            <button class="btn btn-outline-light d-md-none mb-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#sidebarCollapse" aria-expanded="false" aria-controls="sidebarCollapse">
                 <i class="bi bi-list"></i> Menú
             </button>
 
+            <!-- Sidebar colapsable para móviles -->
+            <div class="collapse d-md-none" id="sidebarCollapse">
+                <div class="sidebar p-3 mb-3 bg-dark text-light">
+                    <h4 class="mb-4 border-bottom pb-2">Panel de Control</h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="<?= base_url('cine_index') ?>">
+                                <i class="bi bi-house-door-fill me-2"></i>Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('usuarios') ?>">
+                                <i class="bi bi-speedometer2 me-2"></i>Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('reservas/listar') ?>">
+                                <i class="bi bi-ticket-fill me-2"></i>Reservas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('generos/listar') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Géneros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('salas/listar') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Salas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('funciones') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Funciones
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('peliculas') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Peliculas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('asientos') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Asientos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('asientos') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Asientos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('estados') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Estados
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('detalles_reservas') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Detalle Reservas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contenido principal -->
+            <div class="flex-grow-1 p-3">
+                <!-- Botón Offcanvas móvil -->
+                <button class="btn btn-outline-light d-md-none mb-3" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+                    <i class="bi bi-list"></i> Menú
+                </button>
+            </div>
             <!-- Encabezado -->
             <div class="mb-4">
                 <h2><i class="bi bi-bookmark-fill me-2"></i>Gestión de Géneros</h2>

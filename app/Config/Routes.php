@@ -25,13 +25,6 @@ $routes->post('registrarse', 'RegisterController::store');
 
 
 
-
-
-
-
-
-
-
 /**genero editado por abe*/
 
 $routes->get('generos/listar', 'GenerosController::listar');
@@ -88,3 +81,26 @@ $routes->get('peliculas/eliminar/(:num)', 'PeliculasController::eliminarPelicula
 $routes->get('peliculas/editar/(:num)', 'PeliculasController::buscarPelicula/$1');
 $routes->post('peliculas/actualizar/(:num)', 'PeliculasController::actualizarPelicula/$1');
 $routes->get('reservar/(:num)', 'PeliculasController::verReservar/$1');
+
+/**asientos */
+$routes->get('asientos', 'AsientosController::index');
+$routes->post('asientos/agregar', 'AsientosController::agregarAsientos');
+$routes->get('asientos/eliminar/(:num)', 'AsientosController::eliminar/$1');
+$routes->get('asientos/buscar/(:num)', 'AsientosController::buscarAsientos/$1');
+$routes->post('asientos/editar/(:num)', 'AsientosController::editar/$1');
+
+/**estados */
+$routes->get('estados', 'EstadosController::index');
+$routes->post('agregar_estados', 'EstadosController::agregarEstados');
+$routes->get('eliminar_estados', 'EstadosController::eliminarEstados');
+$routes->post('modificar_estados', 'EstadosController::modificarEstados');
+$routes->get('buscar_estados', 'EstadosController::buscarEstados');
+
+/**detalle reserva */
+
+/**detalle reservas */
+$routes->get('detalles_reservas', 'Detalles_Reservas_Controller::index');
+$routes->post('agregar_detalles_reservas', 'Detalles_Reservas_Controller::agregarDetalles_reservas');
+$routes->get('eliminar_detalles_reservas/(:num)', 'Detalles_Reservas_Controller::eliminar/$1');
+$routes->post('modificar_detalles_reservas/(:num)', 'Detalles_Reservas_Controller::buscarDetalles_reservas/$1');
+$routes->get('buscar_detalles_reservas/(:num)', 'Detalles_Reservas_Controller::buscarDetalles_reservas/$1');

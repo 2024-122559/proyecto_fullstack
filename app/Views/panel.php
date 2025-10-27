@@ -36,8 +36,39 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-secondary" href="<?= base_url('generos') ?>">
+                    <a class="nav-link text-secondary" href="<?= base_url('generos/listar') ?>">
                         <i class="bi bi-bookmark-fill me-2"></i>Géneros
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('salas/listar') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Salas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('funciones') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Funciones
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('peliculas') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Peliculas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('asientos') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Asientos
+                    </a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('estados') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Estados
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="<?= base_url('detalles_reservas') ?>">
+                        <i class="bi bi-bookmark-fill me-2"></i>Detalle Reservas
                     </a>
                 </li>
             </ul>
@@ -75,6 +106,41 @@
                         <li class="nav-item">
                             <a class="nav-link text-secondary" href="<?= base_url('generos/listar') ?>">
                                 <i class="bi bi-bookmark-fill me-2"></i>Géneros
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('salas/listar') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Salas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('funciones') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Funciones
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('peliculas') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Peliculas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('asientos') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Asientos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('asientos') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Asientos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('estados') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Estados
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary" href="<?= base_url('detalles_reservas') ?>">
+                                <i class="bi bi-bookmark-fill me-2"></i>Detalle Reservas
                             </a>
                         </li>
                     </ul>
