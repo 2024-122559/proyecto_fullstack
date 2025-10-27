@@ -4,11 +4,13 @@ use App\Models\UsuarioModel;
 
 class LoginController extends BaseController
 {
-    public function index(){
-        return view('login'); // Formulario único
+    public function index()
+    {
+        return view('login'); // Formulario de login
     }
 
-    public function autenticar(){
+    public function autenticar()
+    {
         $session = session();
         $usuarioModel = new UsuarioModel();
 
@@ -17,16 +19,21 @@ class LoginController extends BaseController
 
         $usuario = $usuarioModel->where('email', $email)->first();
 
-        if($usuario){
-            if($usuario['activo'] != 1){
-                return redirect()->back()->with('error','Usuario bloqueado');
+        if ($usuario) {
+            // Verificar si el usuario está activo
+            if ($usuario['activo'] != 1) {
+                return redirect()->back()->with('error', 'Usuario bloqueado');
             }
 
-            if(password_verify($password, $usuario['password'])){
+            // Verificar contraseña
+            if (password_verify($password, $usuario['password'])) {
+                // Regenerar sesión
                 $session->regenerate();
+
+                // Guardar datos correctos en sesión
                 $sessionData = [
-                    'id' => $usuario['usuario_id'],
-                    
+                    'usuario_id' => $usuario['usuario_id'], // 🔹 ID real del usuario
+                    'nombre' => $usuario['nombre'],         // opcional
                     'tipo_usuario' => $usuario['tipo_usuario'],
                     'logged_in' => true
                 ];
@@ -36,7 +43,7 @@ class LoginController extends BaseController
                 $usuarioModel->update($usuario['usuario_id'], ['ultimo_acceso' => date('Y-m-d H:i:s')]);
 
                 // Redirigir según rol
-                if($usuario['tipo_usuario'] === 'admin'){
+                if ($usuario['tipo_usuario'] === 'admin') {
                     return redirect()->to('/admin');
                 } else {
                     $redirect = $session->get('redirect_after_login') ?? '/user';
@@ -46,14 +53,14 @@ class LoginController extends BaseController
             }
         }
 
-        return redirect()->back()->with('error','Usuario o contraseña incorrectos');
+        // Si email o contraseña no coinciden
+        return redirect()->back()->with('error', 'Usuario o contraseña incorrectos');
     }
 
-   public function logout()
-{
-    $session = session();
-    $session->destroy(); 
-    return redirect()->to('login');
-}
-
+    public function logout()
+    {
+        $session = session();
+        $session->destroy(); 
+        return redirect()->to('/login');
+    }
 }

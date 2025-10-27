@@ -23,21 +23,30 @@
         <div class="cine-header">
             <img src="https://i.ibb.co/YFk7Dkhr/CINE.png" alt="Cine Header" class="header-image" width="100%">
         </div>
-
         <nav class="navbar navbar-expand-lg navbar-custom">
             <div class="container">
                 <div class="buttonhead">
                     <?php if(session()->get('logged_in')): ?>
-                    <div class="me-3 user-avatar" title="<?= esc(session()->get('id')) ?>">
-                        <?= esc(substr(session()->get('id'), 0, 1)) ?>
+                    <div class="dropdown me-3">
+                        <div class="user-avatar dropdown-toggle" role="button" id="userDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="cursor:pointer;">
+                            <?= esc(substr(session()->get('nombre'), 0, 1)) ?>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="<?= base_url('perfil') ?>">Perfil</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('mis_reservas') ?>">Mis Reservas</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="<?= base_url('logout') ?>">Cerrar Sesión</a></li>
+                        </ul>
                     </div>
-
-                    <a class="nav-link" href="<?= base_url('logout'); ?>">Cerrar Sesión</a>
                     <a class="nav-link" href="<?= base_url('movies'); ?>">Reservar</a>
                     <?php else: ?>
                     <a class="nav-link" href="<?= base_url('login'); ?>">Iniciar Sesión</a>
                     <a class="nav-link" href="<?= base_url('movies'); ?>">Reservar</a>
                     <?php endif; ?>
+
                 </div>
             </div>
         </nav>
@@ -68,6 +77,7 @@
             </div>
 
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

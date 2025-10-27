@@ -16,7 +16,14 @@ $routes->get('reservar/(:num)', 'ReservarController::index/$1');  // Ver funcion
 
 /* Selección y reserva de asientos */
 $routes->get('reservas/asientos', 'ReservarController::asientos');          // Selección de asiento
-$routes->post('reservas/detalle', 'ReservarController::detalle'); 
+$routes->post('reservar/detalle', 'ReservarController::detalle');
+
+$routes->get('mis_reservas', 'UserController::misReservas');
+
+$routes->get('registrarse', 'RegisterController::index');
+$routes->post('registrarse', 'RegisterController::store');
+
+
 
 
 

@@ -29,16 +29,26 @@
             <div class="container">
                 <div class="buttonhead">
                     <?php if(session()->get('logged_in')): ?>
-                    <div class="me-3 user-avatar" title="<?= esc(session()->get('id')) ?>">
-                        <?= esc(substr(session()->get('id'), 0, 1)) ?>
+                    <div class="dropdown me-3">
+                        <div class="user-avatar dropdown-toggle" role="button" id="userDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="cursor:pointer;">
+                            <?= esc(substr(session()->get('nombre'), 0, 1)) ?>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="<?= base_url('perfil') ?>">Perfil</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('mis_reservas') ?>">Mis Reservas</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="<?= base_url('logout') ?>">Cerrar Sesión</a></li>
+                        </ul>
                     </div>
-
-                    <a class="nav-link" href="<?= base_url('logout'); ?>">Cerrar Sesión</a>
-                    <a class="nav-link" href="<?= base_url('movies'); ?>">Regresar</a>
+                    <a class="nav-link" href="<?= base_url('movies'); ?>">Reservar</a>
                     <?php else: ?>
                     <a class="nav-link" href="<?= base_url('login'); ?>">Iniciar Sesión</a>
-                    <a class="nav-link" href="<?= base_url('movies'); ?>">Regresar</a>
+                    <a class="nav-link" href="<?= base_url('movies'); ?>">Reservar</a>
                     <?php endif; ?>
+
                 </div>
             </div>
         </nav>
@@ -101,15 +111,17 @@
                                             <td><?= esc($f['precio_base']) ?></td>
                                             <td>
                                                 <form method="get" action="<?= base_url('reservas/asientos'); ?>">
-                                                    <input type="hidden" name="usuario_id" value="<?= session()->get('id') ?>">
-                                                    <input type="hidden" name="funcion_id" value="<?= esc($f['funcion_id']) ?>">
+                                                    <input type="hidden" name="usuario_id"
+                                                        value="<?= session()->get('id') ?>">
+                                                    <input type="hidden" name="funcion_id"
+                                                        value="<?= esc($f['funcion_id']) ?>">
                                                     <input type="hidden" name="total"
                                                         value="<?= esc($f['precio_base']) ?>">
                                                     <input type="hidden" name="fecha_reserva"
                                                         value="<?= date('Y-m-d') ?>">
                                                     <input type="hidden" name="codigo_qr" value="<?= uniqid('QR_') ?>">
-                                                    <button type="submit"
-                                                        class="btn btn-success btn-sm">Seleccionar  Asiento </button>
+                                                    <button type="submit" class="btn btn-success btn-sm">Seleccionar
+                                                        Asiento </button>
                                                 </form>
                                             </td>
                                         </tr>
