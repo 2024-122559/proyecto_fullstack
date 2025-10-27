@@ -1,0 +1,364 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0b0b2b, #d90abd 70%, #090a0f);
+  overflow-x: hidden;
+}
+
+.stars {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  background: white;
+  box-shadow: 2vw 5vh 2px white, 10vw 8vh 2px white, 15vw 15vh 1px white,
+    22vw 22vh 1px white, 28vw 12vh 2px white, 32vw 32vh 1px white,
+    38vw 18vh 2px white, 42vw 35vh 1px white, 48vw 25vh 2px white,
+    53vw 42vh 1px white, 58vw 15vh 2px white, 63vw 38vh 1px white,
+    68vw 28vh 2px white, 73vw 45vh 1px white, 78vw 32vh 2px white,
+    83vw 48vh 1px white, 88vw 20vh 2px white, 93vw 52vh 1px white,
+    98vw 35vh 2px white, 5vw 60vh 1px white, 12vw 65vh 2px white,
+    18vw 72vh 1px white, 25vw 78vh 2px white, 30vw 85vh 1px white,
+    35vw 68vh 2px white, 40vw 82vh 1px white, 45vw 92vh 2px white,
+    50vw 75vh 1px white, 55vw 88vh 2px white, 60vw 95vh 1px white,
+    65vw 72vh 2px white, 70vw 85vh 1px white, 75vw 78vh 2px white,
+    80vw 92vh 1px white, 85vw 82vh 2px white, 90vw 88vh 1px white,
+    95vw 75vh 2px white;
+  animation: twinkle 8s infinite linear;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  animation: shoot 3s infinite ease-in;
+}
+
+.shooting-star:nth-child(1) {
+  top: 20%;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.shooting-star:nth-child(2) {
+  top: 35%;
+  left: -100px;
+  animation-delay: 1s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 50%;
+  left: -100px;
+  animation-delay: 2s;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120vw) translateY(50vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: white;
+  box-shadow: 8vw 12vh 2px white, 16vw 18vh 1px white, 24vw 25vh 2px white,
+    33vw 15vh 1px white, 41vw 28vh 2px white, 49vw 35vh 1px white,
+    57vw 22vh 2px white, 65vw 42vh 1px white, 73vw 28vh 2px white,
+    81vw 48vh 1px white, 89vw 32vh 2px white, 97vw 45vh 1px white,
+    3vw 68vh 2px white, 11vw 75vh 1px white, 19vw 82vh 2px white,
+    27vw 88vh 1px white, 35vw 72vh 2px white, 43vw 85vh 1px white,
+    51vw 92vh 2px white, 59vw 78vh 1px white;
+  animation: twinkle 6s infinite linear reverse;
+}
+
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+
+@font-face {
+    font-family: "Japanese Robot";
+    src: url("https://db.onlinewebfonts.com/t/9e695e96a151b312967b74ed4d9623c5.eot");
+    src: url("https://db.onlinewebfonts.com/t/9e695e96a151b312967b74ed4d9623c5.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/9e695e96a151b312967b74ed4d9623c5.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/9e695e96a151b312967b74ed4d9623c5.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/9e695e96a151b312967b74ed4d9623c5.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/9e695e96a151b312967b74ed4d9623c5.svg#Japanese Robot")format("svg");
+}
+
+@font-face {
+    font-family: "Asiana";
+    src: url("https://db.onlinewebfonts.com/t/a2aa8115f129be31bfedc3221178c949.eot");
+    src: url("https://db.onlinewebfonts.com/t/a2aa8115f129be31bfedc3221178c949.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/a2aa8115f129be31bfedc3221178c949.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/a2aa8115f129be31bfedc3221178c949.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/a2aa8115f129be31bfedc3221178c949.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/a2aa8115f129be31bfedc3221178c949.svg#Asiana")format("svg");
+}
+
+@font-face {
+    font-family: "Japanese";
+    src: url("https://db.onlinewebfonts.com/t/084c460f0b3a324f95b66992d6df0bc2.eot");
+    src: url("https://db.onlinewebfonts.com/t/084c460f0b3a324f95b66992d6df0bc2.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/084c460f0b3a324f95b66992d6df0bc2.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/084c460f0b3a324f95b66992d6df0bc2.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/084c460f0b3a324f95b66992d6df0bc2.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/084c460f0b3a324f95b66992d6df0bc2.svg#Japanese")format("svg");
+}
+
+@font-face {
+    font-family: "Neonrec";
+    src: url("https://db.onlinewebfonts.com/t/6a1289b5e1a8464089f3464f379fbd00.eot");
+    src: url("https://db.onlinewebfonts.com/t/6a1289b5e1a8464089f3464f379fbd00.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/6a1289b5e1a8464089f3464f379fbd00.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/6a1289b5e1a8464089f3464f379fbd00.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/6a1289b5e1a8464089f3464f379fbd00.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/6a1289b5e1a8464089f3464f379fbd00.svg#Neonrec")format("svg");
+}
+
+.cine-container {
+  max-width: 800px;
+  margin: 0px auto;
+  padding: 0px;
+  background: url('https://i.ibb.co/WWYj5Fqx/background.png') no-repeat center center;
+  background-size: cover;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 0 40px rgba(199, 1, 254, 0.6);
+  font-size: 20px;
+  
+}
+
+/* NAVBAR  */
+.navbar-custom {
+  background: url('https://i.ibb.co/211Hjf4p/nav.png') no-repeat center center;
+  background-size: cover;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+a {
+
+    margin: 5px;
+}
+
+.buttonhead {
+    width: 100%;
+     font-family: "Japanese Robot"; 
+     font-style: italic;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.cine-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* botoncito */
+.btn-success {
+  background-color: #6e108b;
+  color: rgb(255, 255, 255);
+  border: none;
+  font-family: "Japanese Robot";
+}
+
+.btn-success:hover {
+  background-color: #000000;
+}
+
+/*VENETA*/
+
+.vineta {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  border-radius: 40px;
+  width: 200px;
+  height: 60px;
+  
+  margin-left: 50px;
+  margin-top: 20px;
+  align-items: center;
+
+ 
+}
+
+
+
+.vineta > span {
+  font-family: "Asiana", sans-serif;
+  margin: -12px;
+  font-size: 40px;
+}
+
+.vineta p {
+  font-family: "Japanese", sans-serif;
+  margin: -6px;
+  font-size: 50%;
+  font-size: 20px;
+}
+
+.img-estreno {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  width: 100%;
+}
+
+.img-estreno > img {
+  width: 80%;
+  display: block; 
+  
+}
+
+/*mOsTrAr PeLiCuLaS*/
+
+.display {
+  width: 100%;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+}
+
+.scriptin {
+  background-color: #000000;
+}
+
+/*PELICULAS*/
+
+.moviegrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.todaslaspelis {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(199, 1, 254, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.todaslaspelis:hover {
+    transform: scale(1.05);
+}
+
+.postersitos {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.btn-reservar {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #6e108b;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-family: "Japanese Robot";
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.btn-reservar:hover {
+    opacity: 1;
+    background-color: #000000;
+}
+
+/*login que  no sirve*/
+
+.container {
+      font-family: "Japanese Robot";
+
+}
+
+/*vista de peliculita bonita en la pagina de reserva*/
+
+.peliculanum {
+  display: flex;
+  flex-direction: row;
+  
+  font-family: "Asiana", sans-serif;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.detallin {
+  width: 40%;
+  height: auto;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.detallin img {
+  width: 100%;
+  height: 100%;
+}
+
+.peliculin-info {
+  width: 80%;
+  height: auto;
+  margin: 20px;
+  position: relative;
+}
+
+.peliculin-info h2 {
+        font-family: "Japanese Robot", sans-serif;
+        
+
+}
+
+.user-avatar {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #6e108b;
+    color: #fff;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+}

@@ -62,3 +62,6 @@ public/assets/vendor/*
 *.bak
 *.tmp
 *.log
+
+
+/writable/debugbar/
