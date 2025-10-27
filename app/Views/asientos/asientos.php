@@ -213,7 +213,7 @@
                                     </td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
-                                            <a href="<?= base_url('asientos/editar/'.$asiento['asiento_id']); ?>"
+                                            <a href="<?= base_url('asientos/buscar/'.$asiento['asiento_id']); ?>"
                                                 class="action-link btn btn-sm btn-info" title="Editar"><i
                                                     class="bi bi-pencil-fill"></i></a>
                                             <a href="<?= base_url('asientos/eliminar/'.$asiento['asiento_id']); ?>"

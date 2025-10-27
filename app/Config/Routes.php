@@ -92,9 +92,9 @@ $routes->post('asientos/editar/(:num)', 'AsientosController::editar/$1');
 /**estados */
 $routes->get('estados', 'EstadosController::index');
 $routes->post('agregar_estados', 'EstadosController::agregarEstados');
-$routes->get('eliminar_estados', 'EstadosController::eliminarEstados');
-$routes->post('modificar_estados', 'EstadosController::modificarEstados');
-$routes->get('buscar_estados', 'EstadosController::buscarEstados');
+$routes->get('eliminar_estados/(:num)', 'EstadosController::eliminar/$1');
+$routes->post('modificar_estados/(:num)', 'EstadosController::editar/$1');
+$routes->get('buscar_estados/(:num)', 'EstadosController::buscarEstados/$1');
 
 /**detalle reserva */
 

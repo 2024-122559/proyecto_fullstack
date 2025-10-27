@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-6 offset-3">
                 <h1>Actualizar Estado</h1>
-                <form action="<?=base_url('editar_estado')?>" method="post">
+                <form action="<?=base_url('modificar_estados/')?>" method="post">
                     <label for="txt_id" class="form-label">Id</label>
                     <input type="number" name="txt_id" id="txt_id" class="form-control"
                         value="<?=$datos['id_estado'];?>" readonly>

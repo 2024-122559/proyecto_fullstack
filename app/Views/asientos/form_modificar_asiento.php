@@ -19,7 +19,7 @@
                         <h4 class="mb-0"><i class="bi bi-person-lines-fill me-2"></i>Actualizar Asiento</h4>
                     </div>
                     <div class="card-body p-4">
-                        <form action="<?= base_url('asientos/buscar/') ?>" method="post" class="needs-validation"
+                        <form action="<?= base_url('asientos/editar/') ?>" method="post" class="needs-validation"
                             novalidate>
                             <input type="hidden" name="asiento_id" value="<?=$datos['asiento_id'];?>">
 
