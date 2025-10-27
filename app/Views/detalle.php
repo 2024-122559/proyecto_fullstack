@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="mt-4 text-center">
-                    <a href="<?= base_url('/') ?>" class="btn btn-success btn-volver">Hacer otra reserva</a>
+                    <a href="<?= base_url('cine') ?>" class="btn btn-success btn-volver">Hacer otra reserva</a>
                 </div>
             </div>
         </div>
